@@ -11,12 +11,12 @@ RUN npm install -g pnpm
 
 RUN pnpm install
 
-COPY apps/jobs apps/jobs
+COPY apps/notifications apps/notifications
 COPY libs libs
 
-RUN cd apps/jobs && pnpm install
+RUN cd apps/notifications && pnpm install
 
-RUN pnpm run build jobs
+RUN pnpm run build notifications
 
 FROM node:alpine AS production
 
@@ -34,4 +34,4 @@ RUN pnpm install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "dist/apps/jobs/main"]
+CMD ["node", "dist/apps/notifications/main"]
