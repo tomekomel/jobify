@@ -1,24 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/jobify/src",
+  "sourceRoot": "apps/jobs/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/jobify/tsconfig.app.json"
+    "tsConfigPath": "apps/jobs/tsconfig.app.json"
   },
   "monorepo": true,
-  "root": "apps/jobify",
+  "root": "apps/jobs",
   "projects": {
-    "jobify": {
-      "type": "application",
-      "root": "apps/jobify",
-      "entryFile": "main",
-      "sourceRoot": "apps/jobify/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/jobify/tsconfig.app.json"
-      }
-    },
     "jobs": {
       "type": "application",
       "root": "apps/jobs",
