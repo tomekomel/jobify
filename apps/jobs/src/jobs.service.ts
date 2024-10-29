@@ -20,7 +20,7 @@ export class JobsService {
   }
 
   async update(id: string, updateJobDto: UpdateJobDto) {
-    return this.jobsRepository.update({ id }, { $set: updateJobDto });
+    return this.jobsRepository.update({ _id: id }, { $set: updateJobDto });
   }
 
   async remove(id: string) {
