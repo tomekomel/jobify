@@ -1,12 +1,12 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Logger,
   Param,
   Patch,
   Post,
-  Req,
 } from '@nestjs/common';
 import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
@@ -43,5 +43,10 @@ export class JobsController {
   @Get()
   async getAll(): Promise<JobDocument[]> {
     return this.jobsService.findAll();
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string): Promise<JobDocument> {
+    return this.jobsService.remove(id);
   }
 }
