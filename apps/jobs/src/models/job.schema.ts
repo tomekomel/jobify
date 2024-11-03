@@ -1,6 +1,7 @@
 import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ExperienceLevel, JobType, Remote } from './enums';
+import {Benefit} from "./enums/benefit.enum";
 
 @Schema({ versionKey: false })
 export class JobDocument extends AbstractDocument {
@@ -46,8 +47,11 @@ export class JobDocument extends AbstractDocument {
   @Prop()
   title: string;
 
-  @Prop()
-  benefits: string[];
+  @Prop({
+    type: [String],
+    enum: Benefit
+  })
+  benefits: Benefit[];
 }
 
 export const JobSchema = SchemaFactory.createForClass(JobDocument);
