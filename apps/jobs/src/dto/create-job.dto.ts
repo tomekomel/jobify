@@ -8,6 +8,7 @@ import {
 } from 'class-validator';
 import { ExperienceLevel, JobType, Remote } from '../models/enums';
 import { Type } from 'class-transformer';
+import { Benefit } from '../models/enums/benefit.enum';
 
 export class CreateJobDto {
   @IsNotEmpty()
@@ -41,6 +42,6 @@ export class CreateJobDto {
   title: string;
 
   @IsArray()
-  @IsString({ each: true })
-  benefits: string[];
+  @IsEnum(Benefit, { each: true })
+  benefits: Benefit[];
 }
